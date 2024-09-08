@@ -55,21 +55,15 @@ sudo apt-get install -y \
     gnupg \
     lsb-release
 
-#Add Docker’s official GPG key:
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-
-#set up the stable repository
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-#Install Docker Engine
+# Install containerd
 sudo apt-get update -y
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt-get install -y containerd.io
 
 #Configure containerd
 sudo mkdir -p /etc/containerd
 containerd config default | sudo tee /etc/containerd/config.toml
+sudo sed -i 's/            SystemdCgroup = false/            SystemdCgroup = true/' /etc/containerd/config.toml
+
 
 #restart containerd
 sudo systemctl restart containerd
