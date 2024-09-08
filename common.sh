@@ -1,7 +1,11 @@
 #! /bin/bash
 
 # Variable Declaration
-KUBERNETES_VERSION="1.23.3-00"
+KUBERNETES_VERSION="1.28.13"
+# Patch Releases: 1.30.0, 1.30.1, 1.30.2, 1.30.3, 1.30.4
+# Patch Releases: 1.29.0, 1.29.1, 1.29.2, 1.29.3, 1.29.4, 1.29.5, 1.29.6, 1.29.7, 1.29.8
+# Patch Releases:1.28.0, 1.28.1, 1.28.2, 1.28.3, 1.28.4, 1.28.5, 1.28.6, 1.28.7, 1.28.8, 1.28.9, 1.28.10, 1.28.11, 1.28.12, 1.28.13
+# Patch Releases:1.31 Latest Release:1.31.0 (released: 2024-08-13)
 
 # disable swap 
 sudo swapoff -a
